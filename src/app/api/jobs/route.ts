@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     scheduled_date: body.scheduled_date || null,
     scheduled_time: body.scheduled_time || null,
     estimated_duration: body.estimated_duration || 1,
-    price: body.price || null,
+    price: body.price ?? null,
     address: body.address || "",
     created_at: new Date().toISOString(),
     completed_at: null,

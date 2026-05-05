@@ -22,6 +22,17 @@ interface CalendarViewProps {
 
 const HOURS = Array.from({ length: 11 }, (_, i) => i + 7);
 
+const BORDER_COLORS: Record<string, string> = {
+  "bg-blue-500": "border-l-blue-500",
+  "bg-green-500": "border-l-green-500",
+  "bg-purple-500": "border-l-purple-500",
+  "bg-red-500": "border-l-red-500",
+  "bg-yellow-500": "border-l-yellow-500",
+  "bg-indigo-500": "border-l-indigo-500",
+  "bg-pink-500": "border-l-pink-500",
+  "bg-orange-500": "border-l-orange-500",
+};
+
 export default function CalendarView({
   jobs,
   technicians,
@@ -134,7 +145,7 @@ export default function CalendarView({
                           onClick={() => onJobClick?.(job)}
                           className={`w-full text-left p-1.5 rounded text-xs mb-1 border-l-2 ${
                             tech
-                              ? `border-l-${tech.avatar_color.replace("bg-", "")}`
+                              ? BORDER_COLORS[tech.avatar_color] || "border-l-gray-400"
                               : "border-l-gray-400"
                           } bg-primary/5 hover:bg-primary/10 transition-colors cursor-pointer`}
                         >
